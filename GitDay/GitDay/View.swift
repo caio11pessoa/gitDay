@@ -8,7 +8,7 @@ class View: UIView {
         button.setTitle("Title Button", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemGray
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 16
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -16,6 +16,13 @@ class View: UIView {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "subtitle"
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "title"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,6 +57,7 @@ class View: UIView {
         addSubview(button)
         addSubview(subtitleLabel)
         addSubview(decriptionLabel)
+        addSubview(titleLabel)
     }
 
     private func setupConstraints() {
@@ -67,6 +75,11 @@ class View: UIView {
         NSLayoutConstraint.activate([
             decriptionLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
             decriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: decriptionLabel.bottomAnchor, constant: 16),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
