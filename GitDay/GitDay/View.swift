@@ -2,6 +2,7 @@ import UIKit
 
 class View: UIView {
     private let nameLabel: UILabel = UILabel()
+    
     private let button: UIButton = {
         let button = UIButton()
         button.setTitle("Title Button", for: .normal)
@@ -16,6 +17,14 @@ class View: UIView {
         let label = UILabel()
         label.text = "subtitle"
         label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let decriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "description"
+        label.textColor = .systemCyan
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -40,6 +49,7 @@ class View: UIView {
     private func configView() {
         addSubview(button)
         addSubview(subtitleLabel)
+        addSubview(decriptionLabel)
     }
 
     private func setupConstraints() {
@@ -52,6 +62,11 @@ class View: UIView {
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16),
             subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            decriptionLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
+            decriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
