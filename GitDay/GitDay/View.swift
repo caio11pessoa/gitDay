@@ -7,8 +7,13 @@ class View: UIView {
         let button = UIButton()
         button.setTitle("Title Button", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.backgroundColor = .systemGray
-        button.layer.cornerRadius = 16
+        button.backgroundColor = .systemBlue
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 0.0
+        button.layer.masksToBounds = false
+        button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
