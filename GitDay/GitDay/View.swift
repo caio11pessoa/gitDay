@@ -8,7 +8,7 @@ class View: UIView {
         button.setTitle("Title Button", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemGray
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 32
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
